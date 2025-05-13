@@ -1,47 +1,47 @@
 version: '3.8'
 
 services:
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   container_name: app
-  #   ports:
-  #     - "3000:80"
-  #   environment:
-  #     NODE_ENV: development
-  #     NODE_PORT: 80
-  #     JWT_SECRET: 3a1f8e4a6b9c2d5f8e1a7b4c9d2e5f8a
-  #     JWT_EXPIRE: 10800
-  #     JWT_REFRESH_SECRET: 81e7ca90-5f8d-42fc-98b5-0ce062dde2ad
-  #     JWT_REFRESH_EXPIRE_DAY: 1
-  #     DB_SERVER: mysql
-  #     DB_PORT: 3306
-  #     DB_DATABASE: core_db
-  #     DB_USERNAME: root
-  #     DB_PASSWORD: root
-  #   depends_on:
-  #     - mysql
-  #   networks:
-  #     - production
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    ports:
+      - "3000:80"
+    environment:
+      NODE_ENV: development
+      NODE_PORT: 80
+      JWT_SECRET: 3a1f8e4a6b9c2d5f8e1a7b4c9d2e5f8a
+      JWT_EXPIRE: 10800
+      JWT_REFRESH_SECRET: 81e7ca90-5f8d-42fc-98b5-0ce062dde2ad
+      JWT_REFRESH_EXPIRE_DAY: 1
+      DB_SERVER: mysql
+      DB_PORT: 3306
+      DB_DATABASE: core_db
+      DB_USERNAME: root
+      DB_PASSWORD: root
+    depends_on:
+      - mysql
+    networks:
+      - production
 
-  # superset:
-  #   image: amancevice/superset
-  #   container_name: superset
-  #   environment:
-  #     SUPERSET_SECRET_KEY: '2a3e0ea0-2ef5-4928-ab52-22fb482e621e'
-  #     SUPERSET_ADMIN_USERNAME: 'admin'
-  #     SUPERSET_ADMIN_PASSWORD: 'admin'
-  #     DATABASE_URI: 'mysql://root:root@mysql:3306/superset_db'
-  #   volumes:
-  #     - ./superset/superset_config.py:/etc/superset/superset_config.py
-  #     - ./superset/jwt_security.py:/etc/superset/jwt_security.py
-  #   ports:
-  #     - "8088:8088"
-  #   depends_on:
-  #     - mysql
-  #   networks:
-  #     - production
+  superset:
+    image: amancevice/superset
+    container_name: superset
+    environment:
+      SUPERSET_SECRET_KEY: '2a3e0ea0-2ef5-4928-ab52-22fb482e621e'
+      SUPERSET_ADMIN_USERNAME: 'admin'
+      SUPERSET_ADMIN_PASSWORD: 'admin'
+      DATABASE_URI: 'mysql://root:root@mysql:3306/superset_db'
+    volumes:
+      - ./superset/superset_config.py:/etc/superset/superset_config.py
+      - ./superset/jwt_security.py:/etc/superset/jwt_security.py
+    ports:
+      - "8088:8088"
+    depends_on:
+      - mysql
+    networks:
+      - production
 
   mysql:
     image: mysql:8.0

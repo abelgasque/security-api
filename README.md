@@ -3,10 +3,17 @@
 Este é um exemplo de um projeto de API em Node.js utilizando o MySQL com fins educativos. O objetivo deste projeto é demonstrar como criar uma API simples para gerenciar usuários. Você pode usar este projeto como referência para aprender os conceitos básicos de desenvolvimento de APIs com Node.js e MySQL.
 
 ## Ambiente desenvolvimento
+``` bash
+docker-compose up -d
+```
 
+``` bash
 chmod +x start.sh
+```
 
+``` bash
 ./start.sh 
+```
 
 ## Imagem Docker Hub
 ``` bash

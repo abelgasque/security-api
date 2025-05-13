@@ -30,6 +30,7 @@ echo "Iniciando o script de inicialização do MySQL..."
 docker exec -i $MYSQL_CONTAINER_NAME mysql -u$MYSQL_USER -p$MYSQL_PASSWORD <<EOF
 -- Criação do banco de dados
 CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;
+CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE_SUPERSET;
 SELECT 'Banco de dados criado.' AS status;
 
 -- Permissões para o usuário root
